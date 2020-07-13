@@ -99,7 +99,7 @@ function LaunchMenShoe() {
     return <h2>Not Found</h2>
   }
 
-  const { name, brand, imageURL } = shoe;
+  const { name, imageURL } = shoe;
 
   return (
      <div>
