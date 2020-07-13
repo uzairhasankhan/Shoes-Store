@@ -1,42 +1,54 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Outlet, useParams } from 'react-router-dom';
 import "./App.css";
-import DenseAppBar from './components/AppBar';
-// import Home  from './components/Home';
+//import DenseAppBar from './components/AppBar';
+//import Home  from './components/Home';
 //import { shoes } from './components/product';
 
-export default function App() {
+function App() {
   return (
   <Router>
-    <DenseAppBar />
-    <nav className="App">
-      <div className=" App-margin"> </div>
+    
+    {/* <DenseAppBar /> */}
+    <nav>
+      <div className=" App-margin"> 
       <Link to="/">Home</Link>
-      <Link to="/launch">   Men  </Link>
-      <Link to="/Women">   Women  </Link>
+      
+      <Link to="/men">   Men  </Link>
+      
+      <Link to="/women">   Women  </Link>
+      
       <Link to="/Kids">   Kids  </Link>
+      </div>
     </nav>
 
   
     <Routes>
       <Route path="/" element ={<Home />} />
-      <Route path="/launch" element ={<Launch />}>
+      <Route path="/men" element ={<Men />}>
+      
       <Route path="/" element={<LaunchIndex />} />
-      <Route path=":slug" element={<LaunchShoe />} />
+      <Route path=":slug" element={<LaunchMenShoe />} />
       </Route>
       <Route path="*" element={<NotFound />} />
+      <Route path="/women" element ={<Women />} />
+      <Route path="/kids" element ={<Kids />} />
 
     </Routes>
   </Router>
   );
 }
 
+
 function Home() {
   return (
-  <div className="App">
-    
-    <h1> Welcome to UNAS Shoe Store</h1>
+  <div className="body">
+    <h1 className="App-marginS">
+      Welcome to Shoes Store
+      </h1>
+   
   </div>
+  
 
   );
 }
@@ -50,7 +62,7 @@ function NotFound () {
   );
 }
 
-function Launch() {
+function Men() {
   return (
   <div>
     <h1> Welcome Launch</h1>
@@ -60,14 +72,34 @@ function Launch() {
   );
 }
 
-function LaunchShoe() {
+function Women() {
+  return (
+  <div>
+    <h1> Women</h1>
+    <Outlet />
+  </div>
+
+  );
+}
+
+function Kids() {
+  return (
+  <div>
+    <h1> Kids </h1>
+    <Outlet />
+  </div>
+
+  );
+}
+
+function LaunchMenShoe() {
   const {slug} = useParams();
   const shoe = shoes[slug];
   if (!shoe) {
     return <h2>Not Found</h2>
   }
 
-  const { name, imageURL } = shoe;
+  const { name, brand, imageURL } = shoe;
 
   return (
      <div>
@@ -79,12 +111,14 @@ function LaunchShoe() {
 
 function LaunchIndex () {
   return (
-    <ul>
-      {Object.entries(shoes).map(([slug, { name, imageURL }]) => (
+    <ul className="center">
+      {Object.entries(shoes).map(([slug, { name,price, imageURL }]) => (
         <li key={slug}>
-          <Link to={`/launch/${slug}`}>
+          <Link to={`/men/${slug}`}>
           <h2>{name}</h2>
+          
           <img src={imageURL} alt={name} />
+          <h3>Price: {price}$</h3>
           </Link>
           
           </li>
@@ -528,3 +562,5 @@ const shoes = [{
   slug: "michael-feburary-sk8-hi",
 },
 ];
+
+export default App;
