@@ -129,30 +129,6 @@ function LaunchIndex () {
   );
 }
 
-
-// const shoes = {
-//   "air-jordan-3-valor-blue": {
-//     name: "VALOUR BLUE",
-//     imageURL:
-//       "https://secure-images.nike.com/is/image/DotCom/CT8532_104_A_PREM?$SNKRS_COVER_WD$&align=0,1"
-//   },
-//   "jordan-mars-270-london": {
-//     name: "JORDAN MARS 270 LONDON",
-//     imageURL:
-//       "https://secure-images.nike.com/is/image/DotCom/CV3042_001_A_PREM?$SNKRS_COVER_WD$&align=0,1"
-//   },
-//   "air-jordan-1-zoom-racer-blue": {
-//     name: "RACER BLUE",
-//     imageURL:
-//       "https://secure-images.nike.com/is/image/DotCom/CK6637_104_A_PREM?$SNKRS_COVER_WD$&align=0,1"
-//   },
-//   "Air Zoom Pegasus 37":{
-//     name: "PEGASUS 37",
-//     imageURL:
-//         "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2b4f9232-9104-4ac4-9b31-22b421ba46c2/react-infinity-run-flyknit-running-shoe-4jHr6L.jpg"
-//   }
-// };
-
 const shoes = [{
   id: 1,
   name: "Nike React Infinity Run Flyknit",
